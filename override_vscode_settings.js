@@ -9,4 +9,4 @@ const filePath = path.join(HOME_PATH, `Library/Application Support/Code/User/set
 
 const vscodeConfig = fs.readFileSync(filePath, { encoding: "utf-8" });
 
-fs.writeFileSync(filePath, sortJSON(vscodeConfig));
+fs.writeFileSync(filePath, JSON.stringify(sortJSON(JSON.parse(vscodeConfig)), null, 2));
