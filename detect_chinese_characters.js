@@ -9,6 +9,9 @@ function scanDirectoryForChineseCharacters(directoryPath) {
 
     if (fs.statSync(filePath).isDirectory()) {
       // 如果是子目录，递归检测子目录
+      if (containsChineseCharacters(filePath)) {
+        console.log(`目录包含中文字符: ${filePath}`);
+      }
       scanDirectoryForChineseCharacters(filePath);
     } else {
       // 如果是文件，检查文件名是否包含中文字符
